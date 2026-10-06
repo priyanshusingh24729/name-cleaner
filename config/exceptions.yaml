@@ -1,0 +1,51 @@
+# Exceptions and Preservation Configuration
+# Software Application Name Normalizer - Phase 1
+
+# List of canonical software application names that must be strictly preserved
+# (Never strip numbers, years, or words that appear in these names)
+preserve:
+  - "Microsoft 365"
+  - "Microsoft 365 Apps"
+  - "Microsoft Office"
+  - "Symbolbibliothek Elektrotechnik 2011"
+  - "Windows Admin Center"
+  - "Video Games Manager"
+
+# Tokens that must not be removed as metadata or version numbers
+preserve_tokens:
+  - "365"
+  - "Windows"
+  - "Games"
+  - "Manager"
+  - "SAP"
+  - "R/3"
+  - "LT"
+  - "Platform"
+  - "MPX"
+  - "14500"
+
+# Trailing numbers that are part of product identity, not versions
+preserve_trailing_numbers:
+  - "365"
+  - "14500"
+
+# Canonical casing mappings for exact lowercase matches
+canonical_casing:
+  "microsoft 365": "Microsoft 365"
+  "microsoft 365 apps": "Microsoft 365 Apps"
+  "microsoft office": "Microsoft Office"
+  "symbolbibliothek elektrotechnik 2011": "Symbolbibliothek Elektrotechnik 2011"
+  "windows admin center": "Windows Admin Center"
+  "video games manager": "Video Games Manager"
+  "autodesk autocad": "Autodesk AutoCAD"
+  "autodesk sketchbook pro": "Autodesk SketchBook Pro"
+  "logrhythm web console": "LogRhythm Web Console"
+  "maptoaster topo/nz": "MapToaster Topo/NZ"
+  "adobe reader": "Adobe Reader"
+  "prion": "Prion"
+  "altova diffdog": "Altova DiffDog"
+  "veeam backup & replication": "Veeam Backup & Replication"
+  "ibm infosphere information server pack for sap r/3": "IBM InfoSphere Information Server Pack for SAP R/3"
+  "solver sdk platform": "Solver SDK Platform"
+  "claimmaster": "ClaimMaster"
+  "citrix adc mpx 14500": "Citrix ADC MPX 14500"

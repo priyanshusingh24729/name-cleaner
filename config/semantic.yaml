@@ -1,0 +1,21 @@
+# Semantic Reasoning & LLM Verification Configuration
+# Phase 5: LLM Verification for Ambiguous & Uncertain Application Names
+
+provider: "mock" # options: "mock", "ollama", "openai_compatible"
+model: "llama3.2"
+base_url: "http://localhost:11434/v1"
+api_key: "ollama"
+temperature: 0.0
+timeout: 15.0
+
+# Confidence scoring thresholds (Section 12)
+confidence:
+  official_vendor_verified: 0.90
+  package_repo_verified: 0.88
+  search_evidence_verified: 0.78
+  unverified_fallback: 0.65
+
+# Guardrails & Validation
+guards:
+  min_token_overlap: 0.3
+  reject_on_length_expansion: true

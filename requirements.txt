@@ -1,0 +1,7 @@
+# Phase 1 Core Normalizer Dependencies
+pyyaml>=6.0.0
+regex>=2024.0.0
+pandas>=2.0.0
+openpyxl>=3.1.0
+pytest>=8.0.0
+rapidfuzz>=3.0.0

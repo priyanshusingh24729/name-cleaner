@@ -1,0 +1,27 @@
+# Search Engine Configuration for Software Application Name Normalizer
+# Phase 3: Multi-Engine Fallback Layer
+
+fallback_order:
+  - "searxng"
+  - "yacy"
+  - "duckduckgo"
+
+max_results: 5
+cache_results: true
+request_timeout: 10.0
+user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 SoftwareNameNormalizer/1.0"
+
+searxng:
+  enabled: true
+  base_url: "http://localhost:8080"
+  categories: "general"
+  language: "en"
+
+yacy:
+  enabled: true
+  base_url: "http://localhost:8090"
+  verify_ssl: false
+
+duckduckgo:
+  enabled: true
+  endpoint: "https://html.duckduckgo.com/html/"

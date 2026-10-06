@@ -1,0 +1,66 @@
+# Official Domains and Repository Authority Configuration
+# Phase 4: Web Crawler & Official Source Detection
+
+official_vendors:
+  - "microsoft.com"
+  - "apple.com"
+  - "google.com"
+  - "adobe.com"
+  - "autodesk.com"
+  - "jetbrains.com"
+  - "oracle.com"
+  - "ibm.com"
+  - "cisco.com"
+  - "vmware.com"
+  - "liquid-technologies.com"
+  - "logrhythm.com"
+  - "bentley.com"
+  - "altova.com"
+  - "maptoaster.com"
+  - "mozilla.org"
+  - "7-zip.org"
+  - "rarlab.com"
+  - "blender.org"
+  - "videolan.org"
+  - "apache.org"
+  - "python.org"
+  - "docker.com"
+  - "redhat.com"
+  - "canonical.com"
+  - "ubuntu.com"
+
+package_repositories:
+  - "github.com"
+  - "gitlab.com"
+  - "sourceforge.net"
+  - "pypi.org"
+  - "nuget.org"
+  - "npmjs.com"
+  - "crates.io"
+  - "packagist.org"
+  - "hub.docker.com"
+
+reputable_aggregators:
+  - "docs.microsoft.com"
+  - "learn.microsoft.com"
+  - "developer.apple.com"
+  - "developer.android.com"
+  - "cnet.com"
+  - "download.cnet.com"
+  - "componentsource.com"
+  - "softpedia.com"
+
+authority_weights:
+  official_vendor: 1.0
+  package_repository: 0.95
+  reputable_aggregator: 0.70
+  unknown_domain: 0.35
+
+official_path_patterns:
+  - "/products?/"
+  - "/software/"
+  - "/downloads?/"
+  - "/docs?/"
+  - "/documentation/"
+  - "/apps?/"
+  - "/tools?/"

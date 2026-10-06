@@ -1,0 +1,85 @@
+# Configuration for Software Application Name Normalizer Rules
+# Phase 1: Core Deterministic Rules
+
+prefix_rules:
+  - id: remove_inventory_prefix
+    pattern: "^TS\\s*[-_:]\\s*"
+    description: "Remove TS- inventory/system prefix"
+  - id: remove_games_category_prefix
+    pattern: "^Games\\s*[-_:]\\s*"
+    description: "Remove Games category prefix with separator"
+
+suffix_rules:
+  - id: remove_license_network
+    pattern: "\\s+Network\\s+Licen[sc]e\\b"
+    description: "Remove Network License / Network Licence"
+  - id: remove_license_standalone
+    pattern: "\\s+Standalone\\s+Licen[sc]e\\b"
+    description: "Remove Standalone License"
+  - id: remove_license_concurrent
+    pattern: "\\s+Concurrent\\s+Licen[sc]e\\b"
+    description: "Remove Concurrent License"
+  - id: remove_license_site
+    pattern: "\\s+Site\\s+Licen[sc]e\\b"
+    description: "Remove Site License"
+  - id: remove_license_trial
+    pattern: "\\s+(?:\\((?:trial|evaluation|demo)\\)|\\b(?:trial|evaluation|demo)\\b)$"
+    description: "Remove trial / evaluation / demo license status at end"
+  - id: remove_packaging_metadata
+    pattern: "\\s+(?:installer|setup|portable)$"
+    description: "Remove packaging type suffixes"
+  - id: remove_environment_metadata
+    pattern: "(?:\\s+|-)(?:Non-Production(?:\\s+Environment)?|Production(?:\\s+Environment)?|Non-Prod(?:uction)?(?:\\s+Environment)?|Non\\s+Production(?:\\s+Environment)?|Test(?:ing)?(?:\\s+Environment)?|Development(?:\\s+Environment)?|Dev(?:\\s+Environment)?|Staging(?:\\s+Environment)?|Disaster\\s+Recovery(?:\\s+Environment)?|DR(?:\\s+Environment)?|QA(?:\\s+Environment)?|UAT(?:\\s+Environment)?|QA|UAT|NEBS(?:\\s+Enterprise)?|NEBS)\\s*$"
+    description: "Remove deployment environment and compliance terms (Non-Production Environment, QA, NEBS, etc.)"
+  - id: remove_edition_metadata
+    pattern: "(?:\\s+|-)(?:Enterprise(?:\\s+Edition)?|Professional(?:\\s+Edition)?|Standard(?:\\s+Edition)?|Community(?:\\s+Edition)?|Ultimate(?:\\s+Edition)?|Developer\\s+Edition|Express(?:\\s+Edition)?|Workstation(?:\\s+Edition)?|Commercial(?:\\s+Edition)?|Educational(?:\\s+Edition)?|Academic(?:\\s+Edition)?)\\s*$"
+    description: "Remove edition metadata like Enterprise, Professional, Standard"
+  - id: remove_release_number
+    pattern: "(?:\\s+|-)(?:R\\d{1,2}|Release\\s*\\d+|Rel\\.?\\s*\\d+|SP\\s*\\d+|Service\\s+Pack\\s*\\d+|Update\\s*\\d+|Patch\\s*\\d+)\\s*$"
+    description: "Remove release / service pack / update suffixes"
+
+registration_rules:
+  - id: remove_registration_parenthetical
+    pattern: "\\s*\\((?:reg|registered|registration)\\.?\\)"
+    description: "Remove parenthetical registration metadata"
+  - id: remove_registration_word
+    pattern: "\\s+(?:registered|registration)\\b"
+    description: "Remove registration words"
+
+os_platform_rules:
+  - id: remove_os_parenthetical
+    pattern: "\\s*\\((?:Android|iOS|Linux|Ubuntu|Unix|HP-?UX|AIX|Solaris|SunOS|FreeBSD|OpenBSD|Mac|macOS|OS\\s*X|Windows(?:\\s*(?:10|11|Server|XP|Vista|7|8(?:\\.1)?))?|NL)\\)"
+    description: "Remove parenthetical OS / platform metadata"
+  - id: remove_os_for_prefix
+    pattern: "\\s+for\\s+(?:Android|iOS|Linux|Ubuntu|Unix|HP-?UX|AIX|Solaris|SunOS|FreeBSD|OpenBSD|Mac|macOS|OS\\s*X|Windows(?:\\s*(?:10|11|Server|XP|Vista|7|8(?:\\.1)?))?)\\b"
+    description: "Remove 'for <OS>' platform metadata"
+
+architecture_rules:
+  - id: remove_architecture_parenthetical
+    pattern: "\\s*\\((?:64-?bit|32-?bit|x86_64|x86|x64)\\)"
+    description: "Remove parenthetical CPU architecture metadata"
+  - id: remove_architecture_word
+    pattern: "\\s+(?:64-?bit|32-?bit|x86_64|x86|x64)\\b"
+    description: "Remove CPU architecture metadata word"
+
+version_rules:
+  - id: remove_version_keyword
+    pattern: "\\b(?:version|ver\\.?|release|rev\\.?|build)\\s*\\d+(?:\\.\\d+)*\\b"
+    description: "Remove version keywords and numbers"
+  - id: remove_v_prefix
+    pattern: "\\bv\\d+(?:\\.\\d+)*\\b"
+    description: "Remove v-prefixed versions"
+  - id: remove_dotted_version
+    pattern: "\\b\\d+(?:\\.\\d+)+\\b"
+    description: "Remove dotted semantic version numbers"
+  - id: remove_trailing_integer_version
+    pattern: "\\s+\\d{1,3}$"
+    description: "Remove trailing standalone integer version (e.g. LogRhythm Web Console 6)"
+
+year_rules:
+  - id: remove_contextual_year_autodesk
+    pattern: "(?<=\\bAutodesk\\s+[A-Za-z0-9\\s]+?)\\s+(?:19|20)\\d{2}\\b"
+    description: "Contextual removal of Autodesk annual release years (e.g. AutoCAD 2022)"
+  - id: remove_year_with_version_keyword
+    pattern: "\\b(?:Release|Ver(?:sion)?\\.?|v)\\s+(?:19|20)\\d{2}\\b"
+    description: "Explicit versioned year preceded by keyword"

@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Caches and test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment Variables & Secrets
+.env
+*.env
+
+# IDE and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Large datasets, SQLite databases, and pipeline outputs
+output/
+input/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# OS Generated
+.DS_Store
+Thumbs.db
